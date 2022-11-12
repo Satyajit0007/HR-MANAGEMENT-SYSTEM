@@ -25,7 +25,10 @@ public void setDept_name(String dept_name) {
 
 @Override
 public String toString() {
-	return "Department [dept_id=" + dept_id + ", dept_name=" + dept_name + "]";
+	return     "|------------------------------------|"+ '\n'+
+			   "|Department Name = "+ dept_name +"                 "+ '\n'+
+			   "|Department Id = "+ dept_id +"             "+ '\n'+
+	     	   "|------------------------------------|";
 }
 
 

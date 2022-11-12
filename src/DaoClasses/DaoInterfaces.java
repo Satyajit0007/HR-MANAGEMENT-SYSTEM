@@ -8,15 +8,18 @@ import Model.EmployeeLeave;
 
 public interface DaoInterfaces {
 public String regEmployee(String name, String pass);
-public String updateEmpName(String name, String pass,String setName);
-public String updateEmpPass(String name, String pass,String setPass);
+public String updateEmpName(String name, String pass,String newName);
+public String updateEmpPass(String name, String pass, String newPass);
 public Employee viewEmployee(String name, String pass);
-public String addNewDept(String name, String pass, int dept_id, String dept_name);
-public List<Department>  viewDept(String name, String pass);
-public String updateDept(String name, String pass,String dept_name, int dept_id);
-public String transferDept(String name,String pass,int emp_id, int dept_id);
-public String leaveApply(int emp_id, String pass,String days);
-public List<EmployeeLeave> viewEmpLeave(String name, String pass);
-public String leavePermit(String name, String pass,int emp_id, String Status);
-public EmployeeLeave getLeaveStatusById(int emp_id, String pass);
+public String addNewDept();
+public List<Department>  viewDept();
+public String updateDept(int dept_id);
+public String transferDept(int emp_id, int dept_id);
+public String leaveApply( String pass);
+public List<EmployeeLeave> viewEmpLeave();
+public String leavePermit(int emp_id, String Status);
+public EmployeeLeave getLeaveStatusById( String pass);
+public int validateAdmin(String admin_name);
+public List<Employee> getAllEmp();
+public int validateEmployee(String emp_name);
 }
