@@ -1,5 +1,4 @@
-# little-fog-1256
-Human Resource Management System
+
 <h1>Human Resource Management System</h1>
  
 <h1>Project Logo:</h1>
@@ -78,18 +77,26 @@ Software To Monitor Your Employees details, Productive Time, Leave Status & Depa
 <h3>Admin Roles are:</h3>
 
 •	Admin can add new Departments.
+</br>
 •	Admin can view and update the Departments.
+</br>
 •	Admin can register new Employees and give them their password.
+</br>
 •	Admin can also transfer them to other departments.
+</br>
 •	Admin can grant or deny employee leave request.
+</br>
 
 
 
-<h3Employee Roles are:</h3>
-
+<h3>Employee Roles are:</h3>
+</br>
 •	Employee can view and update his profile.
+</br>
 •	Employee can also change his password.
+</br>
 •	Employee can also request for leaves.
+</br>
 
 
 # Tech stack and Tools used 
