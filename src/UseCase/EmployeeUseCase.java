@@ -180,7 +180,7 @@ public class EmployeeUseCase {
 				  if(empLeave == null) {
 						loop = "y";
 						System.out.println(" ");
-						System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT +ConsoleColors.BLACK_BOLD +"You Have Not Applied For Leave");
+						System.out.println(ConsoleColors.WHITE_BACKGROUND_BRIGHT +ConsoleColors.BLACK_BOLD +"You Have Not Applied For Leave");
 //						System.out.println("<-----Application Closed------>");
 						System.out.println("  ");
 						System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");

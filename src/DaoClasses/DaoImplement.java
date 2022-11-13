@@ -17,23 +17,33 @@ import Model.EmployeeLeave;
 public class DaoImplement implements DaoInterfaces{
 	 Scanner sc1 = new Scanner(System.in);
 	@Override
-	public String regEmployee(String name, String pass) {
+	public String regEmployee(String name, String pass , int dept_id) {
 	
 		String msg = ConsoleColors.RED_BOLD +"Insertion Unsuccessful...";
 		
 		
 		try(Connection con = DaoConnection.provideConnection()){
+			PreparedStatement ps1 = con.prepareStatement("select * from department where dept_id = ? ");
+			ps1.setInt(1, dept_id);
 			
-			PreparedStatement ps = con.prepareStatement("insert into Employee(emp_name,emp_pass) value(?,?)");
+			ResultSet rs1 = ps1.executeQuery();
+			
+			if(rs1.next()) {
+			
+			
+			PreparedStatement ps = con.prepareStatement("insert into Employee(emp_name,emp_pass,emp_dept_id) value(?,?,?)");
 			ps.setString(1, name);
 			ps.setString(2,pass);
+			ps.setInt(3, dept_id);
 			
 			
 			
 			int x = ps.executeUpdate();
 			if(x>0) 
 				msg = ConsoleColors.GREEN_BOLD +"Insertion Successful....";
-			
+			}else {
+				msg = ConsoleColors.RED_BOLD+"Department Id Not Found";
+			}
 			
 		}catch(SQLException e) {
 			msg =  e.getMessage();
@@ -433,11 +443,13 @@ String msg = ConsoleColors.RED_BOLD +"Department Insertion Unsuccessful...";
 				
 			
 				ResultSet rs1 = ps1.executeQuery();
+				
 
 				while(rs1.next()) {
 
 					   emp.add(new Employee(rs1.getString("emp_name"),rs1.getString("emp_pass"), rs1.getInt("emp_id"), rs1.getInt("emp_dept_id"),rs1.getString("dept_name")));;
-					}
+					   
+				}
 			}catch(SQLException e) {
 			 e.getMessage();
 		}

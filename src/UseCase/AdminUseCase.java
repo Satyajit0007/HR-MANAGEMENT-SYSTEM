@@ -15,7 +15,7 @@ public class AdminUseCase {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println(ConsoleColors.BLUE_BACKGROUND_BRIGHT +"* Welcome To Admin Portal *  ");
+		System.out.println(ConsoleColors.BLUE_BACKGROUND_BRIGHT+ConsoleColors.BLACK_BOLD  +"* Welcome To Admin Portal *  "+ConsoleColors.RESET);
 		System.out.println("   ");
 		System.out.println(ConsoleColors.WHITE_UNDERLINED +"Please Enter Your Name");
 		String adm_name = sc.next();
@@ -113,8 +113,8 @@ public class AdminUseCase {
 				  List<Department> dept = di.viewDept();
 				  
 				  if(dept.size() == 0) {
-					  System.out.println(ConsoleColors.BLACK_BOLD +"No Deparment Exist" +'\n'
-					  		+ConsoleColors.BLACK_BOLD +"Choose 1 From Menu To Create New Department");
+					  System.out.println(ConsoleColors.WHITE_BACKGROUND_BRIGHT +ConsoleColors.BLACK_BOLD +"No Deparment Exist");
+					  	System.out.println(ConsoleColors.WHITE_BACKGROUND_BRIGHT+ConsoleColors.BLACK_BOLD+"Choose 1 From Menu To Create New Department");
 				  }else {
 					  System.out.println(ConsoleColors.WHITE_BACKGROUND_BRIGHT +ConsoleColors.BLACK_BOLD+ "    ::Department Details ::   ");
 					  dept.forEach(d -> System.out.println(ConsoleColors.WHITE_BACKGROUND_BRIGHT +ConsoleColors.BLACK_BOLD +  d));
@@ -146,8 +146,12 @@ public class AdminUseCase {
 			   	  
 			    System.out.println(ConsoleColors.WHITE_UNDERLINED + "Create password");
 			   	String pass = sc.next();
+			   	
+			   	System.out.println(ConsoleColors.WHITE_UNDERLINED + "Give Department ID");
+			   	int dept_id = sc.nextInt();
+			   	
 			   	 
-			    String res = di.regEmployee(name, pass);
+			    String res = di.regEmployee(name, pass, dept_id);
 			    System.out.println(ConsoleColors.WHITE_BACKGROUND_BRIGHT +ConsoleColors.BLACK_BOLD + res);
 		 		
 			    System.out.println(ConsoleColors.WHITE_BACKGROUND +"|-----------------------------------|");
@@ -213,7 +217,7 @@ public class AdminUseCase {
 		
 			  List<EmployeeLeave> empLeave =  di.viewEmpLeave();
 			  if(empLeave.size() == 0) {
-				  System.out.println(ConsoleColors.BLACK_BOLD +"No One Has Applied For Leave ");
+				  System.out.println(ConsoleColors.WHITE_BACKGROUND_BRIGHT+ConsoleColors.BLACK_BOLD +"No One Has Applied For Leave ");
 			  }else {
 				  empLeave.forEach(d -> System.out.println(ConsoleColors.WHITE_BACKGROUND_BRIGHT +ConsoleColors.BLACK_BOLD + d));
 			  }
@@ -297,8 +301,8 @@ public class AdminUseCase {
 				  List<Employee> empList = di.getAllEmp();
 				  
 				  if(empList.size() == 0) {
-					  System.out.println(ConsoleColors.BLACK_BOLD + "No Employee Exist" +'\n'
-					  		+ConsoleColors.BLACK_BOLD + "Choose 3 From Menu To Register New Employee");
+					  System.out.println(ConsoleColors.WHITE_BACKGROUND_BRIGHT +ConsoleColors.BLACK_BOLD +"No Employee Exist");
+					  System.out.println(ConsoleColors.WHITE_BACKGROUND_BRIGHT+ConsoleColors.BLACK_BOLD+"Choose 3 From Menu To Register New Employee");
 				  }else {
 					  System.out.println(ConsoleColors.WHITE_BACKGROUND_BRIGHT +ConsoleColors.BLACK_BOLD +"    ::Employee Details ::   ");
 					  empList.forEach(d -> System.out.println( ConsoleColors.WHITE_BACKGROUND_BRIGHT +ConsoleColors.BLACK_BOLD + d));
